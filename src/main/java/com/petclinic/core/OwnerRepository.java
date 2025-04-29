@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VisitRepository extends JpaRepository<Visit, Long> {
+public interface OwnerRepository extends JpaRepository<Owner, Long> {
 
-    Visit findByReferenceNumber(String referenceNumber);
+    Owner findByFirstName(String firstName);
 }

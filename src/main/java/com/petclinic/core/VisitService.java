@@ -11,14 +11,21 @@ import org.springframework.stereotype.Service;
 @Service
 public class VisitService {
 
-    @Autowired
-    VisitRepository visitRepository;
-
+    private final VisitRepository visitRepository;
     private static final Logger logger = LoggerFactory.getLogger(VisitService.class);
+
+    public VisitService(VisitRepository visitRepository) {
+        this.visitRepository = visitRepository;
+    }
+
 
     public Visit findByReferenceNumber(String referenceNumber) {
         Visit result = visitRepository.findByReferenceNumber(referenceNumber);
         logger.debug("result found " + result);
         return result;
+    }
+
+    public void save(Visit visit) {
+        visitRepository.save(visit);
     }
 }
